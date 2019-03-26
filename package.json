@@ -4,8 +4,9 @@
   "description": "The most advanced technical assessment platform.",
   "main": "",
   "scripts": {
-    "graphqldoc": "graphqldoc --force",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "graphqldoc --force",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "python -m serve_docs 8000"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
   },
   "graphqldoc": {
     "endpoint": "http://localhost:3000/graphql",
-    "output": "./docs",
+    "output": "./docs/types",
     "title": "CodeSignal GraphQL API",
     "favicon": "<link rel=\"icon\" type=\"image/png\" href=\"https://codesignal.s3.amazonaws.com/uploads/1553569752846/favicon.png\"/>",
     "logo": "<a href=\"https://codesignal.com\" target=\"_blank\" style=\"display:block;\"><img src=\"https://codesignal.s3.amazonaws.com/uploads/1553120624174/logo_main.svg\" /></a>"
