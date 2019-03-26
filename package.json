@@ -1,0 +1,30 @@
+{
+  "name": "graphql-api-docs",
+  "version": "1.0.0",
+  "description": "CodeSignal GraphQL API Documentation",
+  "main": "",
+  "scripts": {
+    "graphqldoc": "graphqldoc --force",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeSignal/graphql-api-docs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CodeSignal/graphql-api-docs/issues"
+  },
+  "homepage": "https://github.com/CodeSignal/graphql-api-docs#readme",
+  "dependencies": {
+    "graphqldoc": "^2.5.1"
+  },
+  "graphqldoc": {
+    "endpoint": "http://localhost:3000/graphql",
+    "output": "./docs",
+    "title": "CodeSignal GraphQL API",
+    "favicon": "<link rel=\"icon\" type=\"image/png\" href=\"https://codesignal.s3.amazonaws.com/uploads/1553569752846/favicon.png\"/>",
+    "logo": "<a href=\"https://codesignal.com\" target=\"_blank\" style=\"display:block;\"><img src=\"https://codesignal.s3.amazonaws.com/uploads/1553120624174/logo_main.svg\" /></a>"
+  }
+}
