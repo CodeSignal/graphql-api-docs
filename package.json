@@ -1,7 +1,7 @@
 {
   "name": "graphql-api-docs",
   "version": "1.0.0",
-  "description": "CodeSignal GraphQL API Documentation",
+  "description": "The most advanced technical assessment platform.",
   "main": "",
   "scripts": {
     "graphqldoc": "graphqldoc --force",
