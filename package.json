@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/CodeSignal/developer-docs#readme",
   "dependencies": {
-    "graphqldoc": "^2.5.1"
+    "graphqldoc": "^2.5.2"
   },
   "graphqldoc": {
     "endpoint": "http://localhost:3000/graphql",
