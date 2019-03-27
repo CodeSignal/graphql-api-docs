@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="https://codesignal.s3.amazonaws.com/uploads/1553569752846/favicon.png"/>
+    <title>CodeSignal GraphQL API</title>
+    <meta name="description" content="GraphQL API documentation for the most advanced technical assessment solution on the market."/>
+    <link type="text/css" rel="stylesheet" href="index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu+Mono" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="page-body">
+            <div class="header">
+                <div class="header-left">
+                    <a href="https://codesignal.com" class="logo-link">
+                        <img alt="CodeSignal home" src="https://codesignal.s3.amazonaws.com/uploads/1553120624174/logo_main.svg">
+                    </a>
+                </div>
+                <div class="header-right">
+                    <h1 class="header-title">CodeSignal GraphQL API</h1>
+                    <h2 class="header-subtitle">The most advanced technical assessment platform.</h2>
+                </div>
+            </div>
+            <div class="schema-link">
+                <a href="types/index.html" class="mono">Explore the schema</a>
+            </div>
+            <div class="main-content">
+                <div class="section">
+                    <h2>Introduction</h2>
+                    <div class="subsection">
+                        <h3>What is GraphQL?</h3>
+                        <p>
+                            GraphQL is an API query language, originally created by Facebook as an alternative to REST.
+                            If you're new to GraphQL, the best place to start is <a href="https://graphql.github.io/learn/">the official documentation</a>.
+                        </p>
+                    </div>
+                    <div class="subsection">
+                        <h3>How do I make a query?</h3>
+                        <p>
+                            It depends on what kind of environment you are making the query from.
+                            Check out this <a href="https://graphql.github.io/code/#graphql-clients">list of GraphQL client libraries</a> to see some tools already available in multiple languages,
+                            including C#/.NET, Go, Java, JavaScript, and Python. These client libraries can make writing queries easier and may provide built-in support for features like caching.
+                        </p>
+                        <p>
+                            However, GraphQL is just a query language served over HTTP, so you can also make a request without using any GraphQL-specific libraries or packages.
+                            Here's an example using cURL:
+                        </p>
+                        <pre><code>curl 'http://localhost:3000/graphql' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer MY_API_KEY' --data-binary '{"query":"{ companyTest(id: \"MY_TEST_ID\") { title } }"}'</code></pre>
+                        <p>This returns data that looks like this:</p>
+                        <pre><code>{"data":{"companyTest":{"title":"My Company Test"}}}</code></pre>
+                    </div>
+                    <div class="subsection">
+                        <h3>What kinds of queries can I make?</h3>
+                        <p>
+                            Take a look at <a href="types/index.html">our schema</a>. All read-only queries can be found under RootQuery, and all mutations can be found under RootMutation.
+                        </p>
+                    </div>
+                </div>
+                <div class="section">
+                    <h2>Authentication</h2>
+                    <div class="subsection">
+                        <h3>How do I get an API key?</h3>
+                        <p>
+                            If you're not already using CodeSignal, <a href="https://codesignal.com/demo/">start a conversation</a> with us by requesting a demo.
+                        </p>
+                        <p>
+                            If you're an existing customer, reach out to <span class="mono">support@codesignal.com</span> to learn more.
+                        </p>
+                    </div>
+                    <div class="subsection">
+                        <h3>How do I make an authenticated request?</h3>
+                        <p>
+                            When making a GraphQL request, pass an <span class="mono">"Authorization"</span> header with a value of <span class="mono">"Bearer YOUR_API_KEY"</span> with the HTTP request.
+                            You can see a simple example of this in the cURL command above.
+                        </p>
+                        <p>
+                            Some queries or mutations may require specific permissions to be assigned to your API key.
+                            If you receive Access Denied errors that you believe to be in error, please contact support.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

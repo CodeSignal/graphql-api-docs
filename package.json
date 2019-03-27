@@ -1,29 +1,29 @@
 {
-  "name": "graphql-api-docs",
+  "name": "developer-docs",
   "version": "1.0.0",
   "description": "The most advanced technical assessment platform.",
   "main": "",
   "scripts": {
-    "build": "graphqldoc --force",
+    "build": "rm -rf docs/graphql/types && graphqldoc --force",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "python -m serve_docs 8000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeSignal/graphql-api-docs.git"
+    "url": "git+https://github.com/CodeSignal/developer-docs.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CodeSignal/graphql-api-docs/issues"
+    "url": "https://github.com/CodeSignal/developer-docs/issues"
   },
-  "homepage": "https://github.com/CodeSignal/graphql-api-docs#readme",
+  "homepage": "https://github.com/CodeSignal/developer-docs#readme",
   "dependencies": {
     "graphqldoc": "^2.5.1"
   },
   "graphqldoc": {
     "endpoint": "http://localhost:3000/graphql",
-    "output": "./docs/types",
+    "output": "./docs/graphql/types",
     "title": "CodeSignal GraphQL API",
     "favicon": "<link rel=\"icon\" type=\"image/png\" href=\"https://codesignal.s3.amazonaws.com/uploads/1553569752846/favicon.png\"/>",
     "logo": "<a href=\"https://codesignal.com\" target=\"_blank\" style=\"display:block;\"><img src=\"https://codesignal.s3.amazonaws.com/uploads/1553120624174/logo_main.svg\" /></a>"
