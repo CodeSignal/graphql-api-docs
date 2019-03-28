@@ -40,27 +40,33 @@ h3 {
     background-color: #f5f6f7;
 }
 
-.header {
-    display: flex;
-    flex-direction: row;
-}
-
-.header-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 16px;
-}
-
 .logo-link {
     display: inline-block;
 }
 
-.header-right {
-    padding: 24px 0 24px 40px;
-    flex-grow: 1;
+.header {
+    font-family: 'Ubuntu Mono', monospace;
 }
 
 .header-subtitle {
     font-size: .8125em;
+    text-align: center;
+}
+
+.main-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content > *:not(:first-child) {
+    margin-top: 32px;
+}
+
+.doc-link {
+    font-size: 1.3em;
+    display: block;
+    font-family: 'Ubuntu Mono', monospace;
 }

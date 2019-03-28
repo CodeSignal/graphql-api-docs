@@ -69,6 +69,7 @@ pre > code {
 }
 
 .header-right {
+    font-family: 'Ubuntu Mono', monospace;
     padding: 24px 0 24px 40px;
     flex-grow: 1;
 }
@@ -96,4 +97,10 @@ pre > code {
 
 .subsection {
     margin-bottom: 24px;
+}
+
+.doc-link {
+    font-size: 1.3em;
+    display: block;
+    font-family: 'Ubuntu Mono', monospace;
 }
