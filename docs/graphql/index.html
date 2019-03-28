@@ -47,7 +47,7 @@
                             However, GraphQL is just a query language served over HTTP, so you can also make a request without using any GraphQL-specific libraries or packages.
                             Here's an example using cURL:
                         </p>
-                        <pre><code>curl 'http://localhost:3000/graphql' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer MY_API_KEY' --data-binary '{"query":"{ companyTest(id: \"MY_TEST_ID\") { title } }"}'</code></pre>
+                        <pre><code>curl 'https://app.codesignal.com/graphql' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer MY_API_KEY' --data-binary '{"query":"{ companyTest(id: \"MY_TEST_ID\") { title } }"}'</code></pre>
                         <p>This returns data that looks like this:</p>
                         <pre><code>{"data":{"companyTest":{"title":"My Company Test"}}}</code></pre>
                     </div>
