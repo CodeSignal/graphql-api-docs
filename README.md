@@ -21,7 +21,7 @@ To generate documentation:
  
  ## How to publish updated docs
 This repo is hosted with GitHub Pages, so any change under `/docs` on the `master` branch will be published here:
-https://codesignal.github.io/graphql-api-docs/
+https://codesignal.github.io/developer-docs/
 Which in return should be redirected to this subdomain: developer.codesignal.com
 
 That's it! You should see your changes there once they reach the master branch, as long as they are under `/docs`. 
