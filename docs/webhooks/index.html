@@ -75,7 +75,7 @@
                 <div class="subsection">
                     <h3>Authentication</h3>
                     <p>
-                        For webhooks with a secret key, CodeSignal will sign every request with a <span class="mono">X-CodeSignal-Signature</span> HTTP header, generated using the following algorithim:
+                        For webhooks with a secret key, CodeSignal will sign every request with a <span class="mono">X-CodeSignal-Signature</span> HTTP header, generated using the following algorithm:
                     </p>
                     <pre><code>getSignature(secretKey, endpointUrl, { eventType = '', triggeredOn = '' }) {
   const plainText = `${endpointUrl}${eventType}${triggeredOn}`;
