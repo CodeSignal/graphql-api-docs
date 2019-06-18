@@ -35,15 +35,6 @@
                     </p>
                 </div>
                 <div class="subsection">
-                    <h3>How do I create a webhook?</h3>
-                    <p>
-                        If you're not already using CodeSignal, <a href="https://codesignal.com/demo/">start a conversation</a> with us by requesting a demo.
-                    </p>
-                    <p>
-                        If you're an existing customer, reach out to <span class="mono">support@codesignal.com</span> for assistance.
-                    </p>
-                </div>
-                <div class="subsection">
                     <h3>What information is needed to create a webhook?</h3>
                     <p>
                         Each webhook needs the following information:
@@ -65,6 +56,39 @@
                             <li>
                                 <strong>Owner emails</strong>: (optional) If the webhook cannot deliver its payload to the endpoint URL successfully, we will
                                 send a notification email to every provided email address. Read more about the retry policy below.
+                            </li>
+                            <li>
+                                <strong>Custom headers</strong>: (optional) Custom HTTP request headers that we will send to your endpoint in addition to the signature header.
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="subsection">
+                    <h3>How do I create a webhook?</h3>
+                    <p>
+                        If you're not already using CodeSignal, <a href="https://codesignal.com/demo/">start a conversation</a> with us by requesting a demo.
+                    </p>
+                    <p>
+                        If you're an existing customer, you can create, edit and view status of your webhooks from the <a href="https://app.codesignal.com/client-dashboard/integrations/webhooks">Manage Webhooks</a> page.
+                        <ul>
+                            <li>
+                                Go to the <a href="https://app.codesignal.com/client-dashboard/integrations/webhooks">Manage Webhooks</a> page to create a webhook, and hit the "add a webhook" button.
+                                <img alt="Manage Webhooks page" src="https://codesignal.s3.amazonaws.com/uploads/1560878931951/2019-06-18_10-17-23.png" style="width:100%;">
+                            </li>
+                            <li>
+                                Fill out all of the required fields, as well as optional ones if you need them. We will generate a <strong>Secret key</strong> automatically, but you can overwrite it with a custom one.
+                                <img alt="Create webhook modal" src="https://codesignal.s3.amazonaws.com/uploads/1560879319085/2019-06-18_10-34-49.png" style="width:50%;">
+                            </li>
+                            <li>
+                                All newly created webhooks are initially active.
+                                <img alt="Healthy webhook" src="https://codesignal.s3.amazonaws.com/uploads/1560878931895/2019-06-18_10-14-59.png" style="width:100%;">
+                            </li>
+                            <li>
+                                A webhook that fails <span class="mono">25</span> times becomes "disabled".
+                                <img alt="Disabled webhook" src="https://codesignal.s3.amazonaws.com/uploads/1560878931773/2019-06-18_10-14-55.png" style="width:100%;">
+                            </li>
+                            <li>
+                                You can reenable a webhook by updating its endpoint with a valid one.
                             </li>
                         </ul>
                     </p>
