@@ -280,6 +280,57 @@
 };</code></pre>
                 </div>
             </div>
+            <div class="subsection">
+                    <h3>certificationResultShared</h3>
+                    <p>
+                        Fired when a candidate shares their certification result(s) to a specific certification request, or when the result they agreed to automatically share gets certified.
+                    </p>
+                    <div>Request format:</div>
+                    <pre><code>{
+  event: 'certificationResultShared',
+  triggeredOn: number,
+  payload: {
+    certificationRequestId: string,
+    testId: string,
+    testTitle: string,
+    candidateEmail: string,
+    candidateName: string,
+    sharedTestSessions: Array<{ // ordered by codingScore in descending order
+      codingScore: number,
+      score: number,
+      maxScore: number,
+      duration: number,
+      id: string
+    }>
+  }
+};</code></pre>
+                    <div>Sample request:</div>
+                    <pre><code>{
+  event: 'certificationResultShared',
+  triggeredOn: 1553720789347,
+  payload: {
+    certificationRequestId: 'lehjeh36dleh29',
+    testId: 'dhey29hcl28hl28',
+    testTitle: 'General Coding Assessment',
+    candidateEmail: 'john.doe@gmail.com',
+    candidateName: 'John Doe',
+    sharedTestSessions: [{
+      codingScore: 823,
+      score: 1148,
+      maxScore: 1300,
+      duration: 5045173,
+      id: '272bu5Na997EdzmQ8'
+    }, {
+      codingScore: 793,
+      score: 876,
+      maxScore: 1300,
+      duration: 5286253,
+      id: '2TgbrRMkBiksAXqEd'
+    }]
+  }
+};</code></pre>
+                </div>
+            </div>
             <div class="section">
                 <a class="doc-link" href="../">Developer Home</a>
                 <a class="doc-link" href="../graphql/">GraphQL</a>
