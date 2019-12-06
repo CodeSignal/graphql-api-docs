@@ -266,7 +266,9 @@
     candidateName: string,
     duration: number, // milliseconds
     score: number,
-    maxScore: number
+    maxScore: number,
+    plagiarismLevel: number,
+    plagiarismLabel: 'none' | 'low' | 'medium' | 'high' | '-',
   }
 };</code></pre>
                     <div>Sample request:</div>
@@ -281,7 +283,9 @@
     candidateName: 'John Doe',
     duration: 3480000, // 58 minutes
     score: 850,
-    maxScore: 1000
+    maxScore: 1000,
+    plagiarismLevel: 0.5,
+    plagiarismLabel: 'medium',
   }
 };</code></pre>
                 </div>
