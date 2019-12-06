@@ -102,6 +102,11 @@ li:not(:first-child) {
     margin-bottom: 24px;
 }
 
+.footer {
+    margin-bottom: 16px;
+    margin-left: 48px;
+}
+
 .doc-link {
     font-size: 1.3em;
     display: block;
