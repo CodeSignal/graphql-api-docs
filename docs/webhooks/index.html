@@ -6,7 +6,7 @@
     <title>CodeSignal Webhook API</title>
     <meta name="description" content="Webhook API documentation for the most advanced technical assessment solution on the market."/>
     <link type="text/css" rel="stylesheet" href="index.css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato|Ubuntu+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Ubuntu+Mono" rel="stylesheet">
 </head>
 
 <body>
@@ -36,20 +36,20 @@
                 </div>
                 <div class="subsection">
                     <h3>What information is needed to create a webhook?</h3>
-                    <p>
+                    <div>
                         Each webhook needs the following information:
                         <ul>
                             <li>
-                                <strong>Endpoint URL</strong>: The URL to which the webhook will send its POST payloads.
+                                <strong>Endpoint URL</strong>: The URL that will receive POST payloads.
                                 This must be a valid URL that returns a 200 HTTP status after receiving each POST.
-                                When the webhook is created or updated, the URL will be POSTed with an empty payload, which must return a 200 status code within 5 seconds
-                                in order to successfully create or update the webhook.
+                                When the webhook is created or updated, the URL will be POSTed with an empty payload, which must return a 200 status code within 10 seconds
+                                in order to successfully complete creating or updating the webhook.
                             </li>
                             <li>
                                 <strong>Event types</strong>: The list of events the webhook will be notified about.
                             </li>
                             <li>
-                                <strong>Secret key</strong>: (optional) The secret key is a string used to generate a signature header that you can use to verify that the webhook data came from CodeSignal.
+                                <strong>Secret key</strong>: (optional) A string used to generate a signature header that you can use to verify that the webhook data came from CodeSignal.
                                 The secret key is used in conjunction with the webhook's payload to generate a digital signature.
                                 Although it is not strictly required, we strongly encourage use of the secret key to verify that webhooks are actually coming from our platform.
                             </li>
@@ -61,14 +61,14 @@
                                 <strong>Custom headers</strong>: (optional) Custom HTTP request headers that we will send to your endpoint in addition to the signature header.
                             </li>
                         </ul>
-                    </p>
+                    </div>
                 </div>
                 <div class="subsection">
                     <h3>How do I create a webhook?</h3>
                     <p>
                         If you're not already using CodeSignal, <a href="https://codesignal.com/demo/">start a conversation</a> with us by requesting a demo.
                     </p>
-                    <p>
+                    <div>
                         If you're an existing customer, you can create, edit and view status of your webhooks from the <a href="https://app.codesignal.com/client-dashboard/integrations/webhooks">Manage Webhooks</a> page.
                         <ul>
                             <li>
@@ -88,10 +88,10 @@
                                 <img alt="Disabled webhook" src="https://codesignal.s3.amazonaws.com/uploads/1560878931773/2019-06-18_10-14-55.png" style="width:100%;">
                             </li>
                             <li>
-                                You can reenable a webhook by updating its endpoint with a valid one.
+                                You can re-enable a webhook by updating its endpoint with a valid one.
                             </li>
                         </ul>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div class="section">
@@ -121,12 +121,12 @@
                 </div>
                 <div class="subsection">
                     <h3>Retry policy</h3>
-                    <p>
+                    <div>
                         In the event of a failed webhook (due to timeout, a status code other than 200, or network issues),
                         CodeSignal will attempt a maximum of 25 retries with exponential backoff according to the formula below.
                         The number of seconds to wait is relative to the last failed attempt.
                         <pre><code>secondsToWait = failCount^4 + 15 + (random(30) * (failCount + 1))</code></pre>
-                    </p>
+                    </div>
                     <p>
                         Assuming that <span class="mono">random(30)</span> always returns its average of 15, that would lead
                         to the following retry attempts. (Not all retries are listed in the table, since this is just meant to give a sense of the retry backoff timeline.)
@@ -192,10 +192,16 @@
                         To make sure we don't spam you, CodeSignal will send at most one email a day for every webhook.
                         This means that you will generally be notified about the first fail, the 14th fail, and every fail starting from the 16th.
                     </p>
+                    <p>
+                        When a webhook is unhealthy, events will be queued in the order they were triggered, and the queue will not be flushed until
+                        the first event in the queue is able to be processed successfully (by receiving a 200 OK response from the endpoint URL).
+                        If you are able to identify and resolve the issue with the endpoint URL, you can open the webhook settings modal, then test and save
+                        the fixed webhook in order to mark it as healthy again. Once it is marked as healthy, the webhook will immediately flush its queue of pending events.
+                    </p>
                 </div>
                 <div class="subsection">
                     <h3>Webhook payloads</h3>
-                    <p>
+                    <div>
                         All webhooks include the following fields in their payloads:
                         <ul>
                             <li>
@@ -208,7 +214,7 @@
                                 <strong>payload</strong>: [object] The list of events the webhook will be notified about.
                             </li>
                         </ul>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div class="section">
@@ -260,7 +266,9 @@
     candidateName: string,
     duration: number, // milliseconds
     score: number,
-    maxScore: number
+    maxScore: number,
+    plagiarismLevel: number,
+    plagiarismLabel: 'none' | 'low' | 'medium' | 'high' | '-',
   }
 };</code></pre>
                     <div>Sample request:</div>
@@ -275,12 +283,13 @@
     candidateName: 'John Doe',
     duration: 3480000, // 58 minutes
     score: 850,
-    maxScore: 1000
+    maxScore: 1000,
+    plagiarismLevel: 0.5,
+    plagiarismLabel: 'medium',
   }
 };</code></pre>
                 </div>
-            </div>
-            <div class="subsection">
+                <div class="subsection">
                     <h3>certificationResultShared</h3>
                     <p>
                         Fired when a candidate shares their certification result(s) to a specific certification request, or when the result they agreed to automatically share gets certified.
@@ -330,11 +339,79 @@
   }
 };</code></pre>
                 </div>
+                <div class="subsection">
+                    <h3>certificationRequestExpired</h3>
+                    <p>
+                        Fired when a request for a certified test result cannot be fulfilled within the expiration window.
+                        The <strong>expiredReason</strong> field indicates whether the expiration is due to the test not being taken at all,
+                        or whether the test could not be certified by CodeSignal due to possibility/suspicion of cheating. If the latter,
+                        a <strong>rejectedReasons</strong> field will also be provided.
+                    </p>
+                    <div>Request format:</div>
+                    <pre><code>{
+  event: 'certificationRequestExpired',
+  triggeredOn: number,
+  payload: {
+    certificationRequestId: string,
+    testId: string,
+    testTitle: string,
+    candidateEmail: string,
+    candidateName: string,
+    expiredReason: 'testNotTaken' | 'notCertified',
+    rejectedReasons?: Array&lt;string&gt;
+  }
+};</code></pre>
+                    <div>Sample request:</div>
+                    <pre><code>{
+  event: 'certificationRequestExpired',
+  triggeredOn: 1553720789347,
+  payload: {
+    certificationRequestId: 'lehjeh36dleh29',
+    testId: 'dhey29hcl28hl28',
+    testTitle: 'General Coding Assessment',
+    candidateEmail: 'john.doe@gmail.com',
+    candidateName: 'John Doe',
+    expiredReason: 'notCertified',
+    rejectedReasons: ['Unauthorized resource', 'Presence of others'],
+  }
+};</code></pre>
+                </div>
+                <div class="subsection">
+                    <h3>certificationRequestRejected</h3>
+                    <p>
+                        Fired when a candidate explicitly declines a request to share a certification result. This means that they neither
+                        took the test upon request nor agreed to share any pre-existing results.
+                    </p>
+                    <div>Request format:</div>
+                    <pre><code>{
+  event: 'certificationRequestRejected',
+  triggeredOn: number,
+  payload: {
+    certificationRequestId: string,
+    testId: string,
+    testTitle: string,
+    candidateEmail: string,
+    candidateName: string,
+  }
+};</code></pre>
+                    <div>Sample request:</div>
+                    <pre><code>{
+  event: 'certificationRequestRejected',
+  triggeredOn: 1553720789347,
+  payload: {
+    certificationRequestId: 'lehjeh36dleh29',
+    testId: 'dhey29hcl28hl28',
+    testTitle: 'General Coding Assessment',
+    candidateEmail: 'john.doe@gmail.com',
+    candidateName: 'John Doe',
+  }
+};</code></pre>
+                </div>
             </div>
-            <div class="section">
-                <a class="doc-link" href="../">Developer Home</a>
-                <a class="doc-link" href="../graphql/">GraphQL</a>
-            </div>
+        </div>
+        <div class="section footer">
+            <a class="doc-link" href="../">Developer Home</a>
+            <a class="doc-link" href="../graphql/">GraphQL</a>
         </div>
     </div>
 </div>
