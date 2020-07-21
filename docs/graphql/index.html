@@ -45,17 +45,114 @@
                         </p>
                         <p>
                             However, GraphQL is just a query language served over HTTP, so you can also make a request without using any GraphQL-specific libraries or packages.
-                            Here's an example using cURL:
+                            Here's an example using cURL (you'd need to replace the API key and test ID to try it yourself):
                         </p>
                         <pre><code>curl 'https://app.codesignal.com/graphql' -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer MY_API_KEY' --data-binary '{"query":"{ companyTest(id: \"MY_TEST_ID\") { title } }"}'</code></pre>
                         <p>This returns data that looks like this:</p>
                         <pre><code>{"data":{"companyTest":{"title":"My Company Test"}}}</code></pre>
                     </div>
                     <div class="subsection">
+                        <h3>How can I test my queries during development?</h3>
+                        <p>
+                            Although you'll likely want to consume our API programmatically using a library in your language of choice,
+                            as you work on your integration, you may find it helpful to have a readily available UI for writing and running queries.
+                            For that, try out our <a href="https://app.codesignal.com/graphql">GraphQL Playground</a>, which is connected to our real API
+                            and provides a helpful interface that will make it easier for you to quickly spot and resolve syntax or schema issues in your queries.
+                        </p>
+                        <p>
+                            To use the GraphQL Playground, you need to first generate an API key (see below) and then provide that in the HTTP Headers section in the bottom-left:
+                        </p>
+                        <pre><code>{ "Authorization": "Bearer YOUR_API_KEY" }</code></pre>
+                        <p>
+                            As long as you provide a valid API key, you can write and execute queries here and see the result immediately. If there are errors in your query syntax,
+                            red highlighting will appear on the left side of lines with errors, and you can hover over the query to learn more about what is wrong.
+                        </p>
+                        <p>
+                            You can also explore the GraphQL schema and documentation live from the GraphQL Playground, as well as copy your query to a cURL command like the one from the previous section.
+                        </p>
+                    </div>
+                    <div class="subsection">
                         <h3>What kinds of queries can I make?</h3>
                         <p>
                             Take a look at <a href="types/index.html">our schema</a>. All read-only queries can be found under RootQuery, and all mutations can be found under RootMutation.
                         </p>
+                        <p>
+                            Here's an example of a query that you could run to fetch the answers from a company test session:
+                        </p>
+                        <pre><code>query AnswerQuery {
+  companyTestSession(id: "MY_TEST_SESSION_ID") {
+    id
+    result {
+      taskResults {
+        solution {
+          id
+          ... on CodingSolution {
+            sources {
+              source
+              language
+              path
+            }
+          }
+          ... on FreeFormSolution {
+            freeTextAnswer: answer
+          }
+          ... on QuizSolution {
+            quizAnswer: answer
+          }
+        }
+      }
+    }
+  }
+}</code></pre>
+                        <p>
+                            In this case, we're using the graph-based nature of the API to make the following request:
+                            Look up a given company test session. For that session, return the ID and the result.
+                            For the result, return the result for each task, including the solution. For each solution,
+                            return the ID of the solution and more information depending on what
+                            kind of solution it is (using <a href="https://graphql.org/learn/queries/#inline-fragments">inline fragment syntax</a>
+                            to query different fields based on type, and <a href="https://graphql.org/learn/queries/#aliases">aliases</a>
+                            to make sure the "answer" field does not conflict, since it has different types for free-text and quiz answers.
+                        </p>
+                        <p>
+                            That might return something that looks like this:
+                        </p>
+                        <pre><code>{
+  "data": {
+    "companyTestSession": {
+      "id": "MY_TEST_SESSION_ID",
+      "result": {
+        "taskResults": [
+          {
+            "solution": {
+              "id": "MY_CODING_SOLUTION_ID",
+              "sources": [
+                {
+                  "source": "console.log('hello world');",
+                  "language": "js",
+                  "path": "main.js"
+                }
+              ]
+            },
+          },
+          {
+            "solution": {
+              "id": "MY_FREE_TEXT_SOLUTION_ID",
+              "freeTextAnswer": "Hello, world!",
+            },
+          },
+          {
+            "solution": {
+              "id": "MY_QUIZ_SOLUTION_ID",
+              "quizAnswer": [
+                "All of the above"
+              ]
+            },
+          }
+        ]
+      }
+    }
+  }
+}</code></pre>
                     </div>
                 </div>
                 <div class="section">
