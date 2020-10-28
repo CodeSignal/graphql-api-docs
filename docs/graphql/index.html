@@ -179,6 +179,40 @@
                     </div>
                 </div>
                 <div class="section">
+                    <h2>Rate Limits and Maximum Cost</h2>
+                    <div class="subsection">
+                        <h3>What are rate limits and cost complexity, anyway?</h3>
+                        <p>
+                            Let's start with an analogy: Say you (the API consumer) are at home, ordering groceries (data) through a service like Instacart (the API).
+                        </p>
+                        <p>
+                            A REST API is like a shopper who can only buy one item from the grocery store at a time.
+                            They can get any item in the store, but only one; if you want a second item, they have to make another full round-trip.
+                            For this kind of API, the main limit is a “rate limit” — in other words, how frequently you can ask the shopper to go to the store.
+                        </p>
+                        <p>
+                            On the other hand, GraphQL APIs are like shoppers who can buy a whole cart’s worth of goods. Convenient!
+                            Like REST API shoppers, they may also have a limit on how frequently they can go to the store (a rate limit),
+                            but they can bring back a lot more groceries per trip. However, if you order too many things at once,
+                            they won’t all fit in the shopping cart. The size of the shopping cart is the "maximum cost" allowed per trip.
+                        </p>
+                    </div>
+                    <div class="subsection">
+                        <h3>What are CodeSignal's rate and cost limits?</h3>
+                        <p>
+                            Our rate limits vary based on the query or mutation; specific limits can be found in the schema documentation. Common values are 10 requests per second,
+                            or 5 requests per second.
+                        </p>
+                        <p>
+                            Our maximum cost for a single query is 10000, and additionally we also don't allow queries with a depth greater than 10.
+                        </p>
+                        <p>
+                            The cost of each resource can be found in the schema documentation, either as a scalar number or a multiplier based on the input.
+                            The total cost of a query will be determined by the cumulative cost of each queried resource.
+                        </p>
+                    </div>
+                </div>
+                <div class="section">
                     <a class="doc-link" href="../">Developer Home</a>
                     <a class="doc-link" href="../webhooks/">Webhooks</a>
                 </div>
