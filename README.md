@@ -16,7 +16,7 @@ To generate documentation:
 - Check out the main repository containing the GraphQL server.
 - Run it the usual way so that GraphQL is accessible here: http://localhost:3000/graphql
 - Check out this repository and run `npm install`, then `npm run build`.
-- Static pages will be generated under `/docs/types`.
+- Static pages will be generated under `/docs/graphql/types`.
  - Make sure they look okay, then commit and push.
  
  ## How to publish updated docs
