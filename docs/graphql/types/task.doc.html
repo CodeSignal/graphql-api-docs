@@ -151,6 +151,11 @@
                 FrontendStyleLanguageName
             </a>
         </li>
+        <li  title="GeneralType">
+            <a href="generaltype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                GeneralType
+            </a>
+        </li>
         <li  title="LanguageName">
             <a href="languagename.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 LanguageName
@@ -321,6 +326,16 @@
                 Integrations
             </a>
         </li>
+        <li  title="InterviewTemplate">
+            <a href="interviewtemplate.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                InterviewTemplate
+            </a>
+        </li>
+        <li  title="InterviewTemplates">
+            <a href="interviewtemplates.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                InterviewTemplates
+            </a>
+        </li>
         <li  title="Invoice">
             <a href="invoice.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Invoice
@@ -399,6 +414,11 @@
         <li class="slds-is-active" title="Task">
             <a href="task.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Task
+            </a>
+        </li>
+        <li  title="Team">
+            <a href="team.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                Team
             </a>
         </li>
         <li  title="TestSessionFeedback">
@@ -541,6 +561,11 @@
                 CreateFreeCodingTaskInput
             </a>
         </li>
+        <li  title="CreateInterviewTemplateInput">
+            <a href="createinterviewtemplateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreateInterviewTemplateInput
+            </a>
+        </li>
         <li  title="CreateQuizInput">
             <a href="createquizinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 CreateQuizInput
@@ -584,6 +609,11 @@
         <li  title="EditFreeCodingTaskInput">
             <a href="editfreecodingtaskinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 EditFreeCodingTaskInput
+            </a>
+        </li>
+        <li  title="EditInterviewTemplateInput">
+            <a href="editinterviewtemplateinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                EditInterviewTemplateInput
             </a>
         </li>
         <li  title="EditQuizInput">
@@ -725,7 +755,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">Task</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="comment line">#   Unique identifier.</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"><span class="comment line">#   The display name of the task.</span></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="comment line">#   The text of the question that will be shown to the user.</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code">}</td></tr></tbody></table></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">Task</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="comment line">#   Unique identifier.</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"><span class="comment line">#   The display name of the task.</span></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">title</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="comment line">#   The text of the question that will be shown to the user.</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"><span class="tab"><span class="meta">description</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code"><span class="tab"><span class="comment line">#   The task type</span></span></td></tr><tr class="row"><td id="L13" class="td-index">13</td><td id="LC13" class="td-code"><span class="tab"><span class="meta">generalType</span>: <a class="support type" href="generaltype.doc.html">GeneralType</a>! </span></td></tr><tr class="row"><td id="L14" class="td-index">14</td><td id="LC14" class="td-code"></td></tr><tr class="row"><td id="L15" class="td-index">15</td><td id="LC15" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
@@ -736,7 +766,7 @@
             </a>
             Required by
         </h2>
-        <ul class="require-by"><li><a href="mutation.doc.html" title="Mutation - ">Mutation<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="testsessiontask.doc.html" title="TestSessionTask - A task given to the test taker in a test instance.
+        <ul class="require-by"><li><a href="interviewtemplate.doc.html" title="InterviewTemplate - An interview template defines a set of tasks relevant for a specialized interview">InterviewTemplate<em>An interview template defines a set of tasks relevant for a specialized interview</em></a><li><li><a href="mutation.doc.html" title="Mutation - ">Mutation<em></em></a><li><li><a href="query.doc.html" title="Query - ">Query<em></em></a><li><li><a href="testsessiontask.doc.html" title="TestSessionTask - A task given to the test taker in a test instance.
 
 - Cost complexity: 1">TestSessionTask<em>A task given to the test taker in a test instance.
 
