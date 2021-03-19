@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/png" href="https://codesignal.s3.amazonaws.com/uploads/1553569752846/favicon.png"/>
+    <link rel="icon" type="image/png" href="href="https://codesignal.com/wp-content/uploads/2020/11/CodeSignal-Logo_Circle_Blue.svg" sizes="32x32"/>
+                                           <!-- https://codesignal.s3.amazonaws.com/uploads/1553569752846/favicon.png -->
     <title>CodeSignal Webhook API</title>
     <meta name="description" content="Webhook API documentation for the most advanced technical assessment solution on the market."/>
     <link type="text/css" rel="stylesheet" href="index.css" />
@@ -15,7 +16,8 @@
         <div class="header">
             <div class="header-left">
                 <a href="https://codesignal.com" class="logo-link">
-                    <img alt="CodeSignal home" src="https://codesignal.s3.amazonaws.com/uploads/1553120624174/logo_main.svg">
+                    <img alt="CodeSignal home" height="50px" src="https://theme.zdassets.com/theme_assets/9544451/012a31c7f1f2ddccf5a4424fb417c11f94315a77.png">
+                                                <!--   https://codesignal.s3.amazonaws.com/uploads/1553120624174/logo_main.svg -->
                 </a>
             </div>
             <div class="header-right">
@@ -219,8 +221,29 @@
             </div>
             <div class="section">
                 <h2>Events</h2>
+<div class="subsection">
+<h3>For CodeSignal Test:</h3>
+<ul>
+<li><a href=“#testworkflow”>Test Webhooks Process Flow</a></li>
+<li><a href=“#companyTestSessionStarted”>companyTestSessionStarted</a></li>
+<li><a href=“#companyTestSessionFinished”>companyTestSessionFinished</a></li>
+</ul>
+<h3>For CodeSignal Certify</h3>
+<ul>
+<li><a href=“#certifyworkflow”>Certify Webhooks Process Flow</a></li>
+<li><a href=“#certificationResultPending”>certificationResultPending</a></li>
+<li><a href=“#certificationResultPending”>certificationResultNotCertified</a></li>
+<li><a href=“#certificationResultShared”>certificationResultShared</a></li>
+<li><a href=“#certificationRequestExpired”>certificationRequestExpired</a></li>
+<li><a href=“#certificationRequestRejected”>certificationRequestRejected</a></li>
+</ul<
+</div>
+ <div class="subsection">
+<h3 id=“testworkflow”>Test Webhooks Process Flow</h3>
+<img alt=“Diagram of web hooks process flow for CodeSignal Test” width=“600” src=“https://codesignal.com/wp-content/uploads/2021/03/webhooksproces_test.png” />
+</div
                 <div class="subsection">
-                    <h3>companyTestSessionStarted</h3>
+                    <h3 id=“companyTestSessionStarted”>companyTestSessionStarted</h3>
                     <p>
                         Fired when a candidate starts a test session.
                     </p>
@@ -250,7 +273,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>companyTestSessionFinished</h3>
+                    <h3 id=“companyTestSessionFinished”>companyTestSessionFinished</h3>
                     <p>
                         Fired when a candidate finishes the test session (including if the session gets force-finished because the time runs out).
                     </p>
@@ -291,8 +314,12 @@
   }
 };</code></pre>
                 </div>
+<div class="subsection">
+<h3 id=“certifyworkflow”>Certify Webhooks Process Flow</h3>
+<img alt=“Diagram of web hooks process flow for CodeSignal Certify width=“600” src=“https://codesignal.com/wp-content/uploads/2021/03/webhooksprocess_certify.png” />
+</div
                 <div class="subsection">
-                    <h3>certificationResultPending</h3>
+                    <h3 id=“certificationResultPending”>certificationResultPending</h3>
                     <p>
                         Fired when a candidate finishes a standardized test session, if that session has been autoshared with your company.
                         The certification request is still pending and has not yet been certified by the CodeSignal certification team.
@@ -333,7 +360,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>certificationResultNotCertified</h3>
+                    <h3 id=“certificationResultNotCertified”>certificationResultNotCertified</h3>
                     <p>
                         Fired when a candidate's standardized test session is denied certification by the CodeSignal certification team,
                         if that test session has been autoshared with your company. The certification request will remain open even after this,
@@ -368,7 +395,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>certificationResultShared</h3>
+                    <h3 id=“certificationResultShared”>certificationResultShared</h3>
                     <p>
                         Fired when a candidate shares their certification result(s) to a specific certification request, or when the result they agreed to automatically share gets certified.
                     </p>
@@ -421,7 +448,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>certificationRequestExpired</h3>
+                    <h3 id=“certificationRequestExpired”>certificationRequestExpired</h3>
                     <p>
                         Fired when a request for a certified test result cannot be fulfilled within the expiration window.
                         The <strong>expiredReason</strong> field indicates whether the expiration is due to the test not being taken at all,
@@ -458,7 +485,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>certificationRequestRejected</h3>
+                    <h3 id=“certificationRequestRejected”>certificationRequestRejected</h3>
                     <p>
                         Fired when a candidate explicitly declines a request to share a certification result. This means that they neither
                         took the test upon request nor agreed to share any pre-existing results.
