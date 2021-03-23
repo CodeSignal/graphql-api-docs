@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="icon" type="image/png" href="https://codesignal.s3.amazonaws.com/uploads/1553569752846/favicon.png"/>
+    <link rel="icon" type="image/png" href="https://app.codesignal.com/img/favicon-32x32.png" sizes="32x32"/>
     <title>CodeSignal Webhook API</title>
     <meta name="description" content="Webhook API documentation for the most advanced technical assessment solution on the market."/>
     <link type="text/css" rel="stylesheet" href="index.css" />
@@ -15,7 +15,7 @@
         <div class="header">
             <div class="header-left">
                 <a href="https://codesignal.com" class="logo-link">
-                    <img alt="CodeSignal home" src="https://codesignal.s3.amazonaws.com/uploads/1553120624174/logo_main.svg">
+                    <img alt="CodeSignal home" src="https://app.codesignal.com/img/logos/logo_blue.svg" />
                 </a>
             </div>
             <div class="header-right">
@@ -25,9 +25,43 @@
         </div>
         <div class="main-content">
             <div class="section">
+                <div class="subsection">
+                    <h2>Table of Contents</h2>
+                    <ul>
+                        <li>Introduction</li>
+                        <ul>
+                            <li><a href="#whatwebhook">What is a webhook?</a></li>
+                            <li><a href="#whatinfo">What information is needed to create a webhook?</a></li>
+                            <li><a href="#howcreate">How do I create a webhook?</a></li>
+                        </ul>
+                        <li>Usage</li>
+                        <ul>
+                            <li><a href="#auth">Authentication</a></li>
+                            <li><a href="#eventhandling">Event handling</a></li>
+                            <li><a href="#retry">Retry policy</a></li>
+                            <li><a href="#payloads">Webhook payloads</a></li>
+                        </ul>
+                        <li>Events for CodeSignal Test</li>
+                        <ul>
+                            <li><a href="#testworkflow">Test webhooks process flow</a></li>
+                            <li><a href="#companyTestSessionStarted">companyTestSessionStarted</a></li>
+                            <li><a href="#companyTestSessionFinished">companyTestSessionFinished</a></li>
+                        </ul>
+                        <li>Events for CodeSignal Certify</li>
+                        <ul>
+                            <li><a href="#certifyworkflow">Certify webhooks process flow</a></li>
+                            <li><a href="#certificationResultPending">certificationResultPending</a></li>
+                            <li><a href="#certificationResultPending">certificationResultNotCertified</a></li>
+                            <li><a href="#certificationResultShared">certificationResultShared</a></li>
+                            <li><a href="#certificationRequestExpired">certificationRequestExpired</a></li>
+                            <li><a href="#certificationRequestRejected">certificationRequestRejected</a></li>
+                        </ul>
+                    </div> 
+                </div>    
+	    <div class="section">
                 <h2>Introduction</h2>
                 <div class="subsection">
-                    <h3>What is a webhook?</h3>
+                    <h3 id="whatwebhook">What is a webhook?</h3>
                     <p>
                         A webhook is a way to receive an event notification from a server.
                         When certain events occur in CodeSignal, a JSON payload containing information about the event will be sent via an HTTP POST request
@@ -35,7 +69,7 @@
                     </p>
                 </div>
                 <div class="subsection">
-                    <h3>What information is needed to create a webhook?</h3>
+                    <h3 id="whatinfo">What information is needed to create a webhook?</h3>
                     <div>
                         Each webhook needs the following information:
                         <ul>
@@ -64,7 +98,7 @@
                     </div>
                 </div>
                 <div class="subsection">
-                    <h3>How do I create a webhook?</h3>
+                    <h3 id="howcreate">How do I create a webhook?</h3>
                     <p>
                         If you're not already using CodeSignal, <a href="https://codesignal.com/demo/">start a conversation</a> with us by requesting a demo.
                     </p>
@@ -97,7 +131,7 @@
             <div class="section">
                 <h2>Usage</h2>
                 <div class="subsection">
-                    <h3>Authentication</h3>
+                    <h3 id="auth">Authentication</h3>
                     <p>
                         For webhooks with a secret key, CodeSignal will sign every request with a <span class="mono">X-CodeSignal-Signature</span> HTTP header, generated using the following algorithm:
                     </p>
@@ -112,7 +146,7 @@
                     </p>
                 </div>
                 <div class="subsection">
-                    <h3>Event handling</h3>
+                    <h3 id="eventhandling">Event handling</h3>
                     <p>
                         For each webhook, we store a list of events the hook should be notified about.
                         When events have been triggered, CodeSignal sends webhooks one event at a time, at a rate of about one per second.
@@ -120,7 +154,7 @@
                     </p>
                 </div>
                 <div class="subsection">
-                    <h3>Retry policy</h3>
+                    <h3 id="retry">Retry policy</h3>
                     <div>
                         In the event of a failed webhook (due to timeout, a status code other than 200, or network issues),
                         CodeSignal will attempt a maximum of 25 retries with exponential backoff according to the formula below.
@@ -200,7 +234,7 @@
                     </p>
                 </div>
                 <div class="subsection">
-                    <h3>Webhook payloads</h3>
+                    <h3 id="payloads">Webhook payloads</h3>
                     <div>
                         All webhooks include the following fields in their payloads:
                         <ul>
@@ -218,9 +252,13 @@
                 </div>
             </div>
             <div class="section">
-                <h2>Events</h2>
+                <h2>Events for CodeSignal Test</h2>
+ <div class="subsection">
+<h3 id="testworkflow">Test webhooks process flow</h3>
+<img alt="Diagram of webhooks process flow for CodeSignal Test" width="100%" src="https://codesignal.com/wp-content/uploads/2021/03/webhooksproces_test.png" />
+</div>
                 <div class="subsection">
-                    <h3>companyTestSessionStarted</h3>
+                    <h3 id="companyTestSessionStarted">companyTestSessionStarted</h3>
                     <p>
                         Fired when a candidate starts a test session.
                     </p>
@@ -250,7 +288,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>companyTestSessionFinished</h3>
+                    <h3 id="companyTestSessionFinished">companyTestSessionFinished</h3>
                     <p>
                         Fired when a candidate finishes the test session (including if the session gets force-finished because the time runs out).
                     </p>
@@ -291,8 +329,13 @@
   }
 };</code></pre>
                 </div>
+		<h2>Events for CodeSignal Certify</h2>    
+<div class="subsection">
+<h3 id="certifyworkflow">Certify webhooks process flow</h3>
+<img alt="Diagram of webhooks process flow for CodeSignal Certify" width="100%" src="https://codesignal.com/wp-content/uploads/2021/03/webhooksprocess_certify.png" />
+</div>
                 <div class="subsection">
-                    <h3>certificationResultPending</h3>
+                    <h3 id="certificationResultPending">certificationResultPending</h3>
                     <p>
                         Fired when a candidate finishes a standardized test session, if that session has been autoshared with your company.
                         The certification request is still pending and has not yet been certified by the CodeSignal certification team.
@@ -333,7 +376,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>certificationResultNotCertified</h3>
+                    <h3 id="certificationResultNotCertified">certificationResultNotCertified</h3>
                     <p>
                         Fired when a candidate's standardized test session is denied certification by the CodeSignal certification team,
                         if that test session has been autoshared with your company. The certification request will remain open even after this,
@@ -368,7 +411,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>certificationResultShared</h3>
+                    <h3 id="certificationResultShared">certificationResultShared</h3>
                     <p>
                         Fired when a candidate shares their certification result(s) to a specific certification request, or when the result they agreed to automatically share gets certified.
                     </p>
@@ -421,7 +464,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>certificationRequestExpired</h3>
+                    <h3 id="certificationRequestExpired">certificationRequestExpired</h3>
                     <p>
                         Fired when a request for a certified test result cannot be fulfilled within the expiration window.
                         The <strong>expiredReason</strong> field indicates whether the expiration is due to the test not being taken at all,
@@ -458,7 +501,7 @@
 };</code></pre>
                 </div>
                 <div class="subsection">
-                    <h3>certificationRequestRejected</h3>
+                    <h3 id="certificationRequestRejected">certificationRequestRejected</h3>
                     <p>
                         Fired when a candidate explicitly declines a request to share a certification result. This means that they neither
                         took the test upon request nor agreed to share any pre-existing results.
