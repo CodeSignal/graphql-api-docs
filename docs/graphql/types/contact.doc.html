@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-        <link rel="icon" type="image/png" href="https://codesignal.s3.amazonaws.com/uploads/1553569752846/favicon.png"/>
+        <link rel="icon" type="image/png" href="https://app.codesignal.com/img/favicon-32x32.png" sizes="32x32"/>
     <title>Contact | CodeSignal GraphQL API</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><script src="./assets/line-link.js"></script><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
@@ -17,7 +17,7 @@
             <button class="slds-button slds-button--icon slds-float--right js-toggle-navigation less-than-medium">
                 <i class="material-icons">close</i>
             </button>
-                <a href="https://codesignal.com" target="_blank" style="display:block;"><img src="https://codesignal.s3.amazonaws.com/uploads/1553120624174/logo_main.svg" /></a>
+                <a href="https://codesignal.com" target="_blank" style="display:block;"><img src="https://codefightsuserpics.s3.amazonaws.com/uploads/1616469365564/logo-main.png" width="200" /></a>
             <div class="slds-p-top--small">
                 <input id="type-search" type="text" placeholder="Search a type" autofocus="" class="slds-input" />
             </div>
@@ -124,6 +124,11 @@
         <li  title="CompanyFeatureStatus">
             <a href="companyfeaturestatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 CompanyFeatureStatus
+            </a>
+        </li>
+        <li  title="ContactStatus">
+            <a href="contactstatus.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                ContactStatus
             </a>
         </li>
         <li  title="Country">
@@ -299,6 +304,11 @@
         <li  title="CompanyTestSessionResult">
             <a href="companytestsessionresult.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 CompanyTestSessionResult
+            </a>
+        </li>
+        <li  title="CompanyUserFields">
+            <a href="companyuserfields.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CompanyUserFields
             </a>
         </li>
         <li class="slds-is-active" title="Contact">
@@ -760,7 +770,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">Contact</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="comment line">#   The ID of the contact. (Not a CodeSignal user ID.)</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a> </span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code">}</td></tr></tbody></table></code>
+        <code class="highlight"><table class="code"><tbody><tr class="row"><td id="L1" class="td-index">1</td><td id="LC1" class="td-code"><span class="keyword operator ts">type</span> <span class="identifier">Contact</span> {</td></tr><tr class="row"><td id="L2" class="td-index">2</td><td id="LC2" class="td-code"></td></tr><tr class="row"><td id="L3" class="td-index">3</td><td id="LC3" class="td-code"><span class="tab"><span class="comment line">#   The ID of the contact. (Not a CodeSignal user ID.)</span></span></td></tr><tr class="row"><td id="L4" class="td-index">4</td><td id="LC4" class="td-code"><span class="tab"><span class="meta">id</span>: <a class="support type" href="id.doc.html">ID</a>! </span></td></tr><tr class="row"><td id="L5" class="td-index">5</td><td id="LC5" class="td-code"></td></tr><tr class="row"><td id="L6" class="td-index">6</td><td id="LC6" class="td-code"><span class="tab"><span class="comment line">#   This contact's full name.</span></span></td></tr><tr class="row"><td id="L7" class="td-index">7</td><td id="LC7" class="td-code"><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L8" class="td-index">8</td><td id="LC8" class="td-code"></td></tr><tr class="row"><td id="L9" class="td-index">9</td><td id="LC9" class="td-code"><span class="tab"><span class="comment line">#   The contact's primary email address.</span></span></td></tr><tr class="row"><td id="L10" class="td-index">10</td><td id="LC10" class="td-code"><span class="tab"><span class="meta">email</span>: <a class="support type" href="string.doc.html">String</a>! </span></td></tr><tr class="row"><td id="L11" class="td-index">11</td><td id="LC11" class="td-code"></td></tr><tr class="row"><td id="L12" class="td-index">12</td><td id="LC12" class="td-code"><span class="tab"><span class="comment line">#   The current status of this contact. Pending or expired means that they have not </span></span></td></tr><tr class="row"><td id="L13" class="td-index">13</td><td id="LC13" class="td-code"><span class="tab"><span class="comment line">#   accepted their invitation</span></span></td></tr><tr class="row"><td id="L14" class="td-index">14</td><td id="LC14" class="td-code"><span class="tab"><span class="comment line">#   to the company; active means that they have a user account linked to the </span></span></td></tr><tr class="row"><td id="L15" class="td-index">15</td><td id="LC15" class="td-code"><span class="tab"><span class="comment line">#   company.</span></span></td></tr><tr class="row"><td id="L16" class="td-index">16</td><td id="LC16" class="td-code"><span class="tab"><span class="meta">status</span>: <a class="support type" href="contactstatus.doc.html">ContactStatus</a>! </span></td></tr><tr class="row"><td id="L17" class="td-index">17</td><td id="LC17" class="td-code"></td></tr><tr class="row"><td id="L18" class="td-index">18</td><td id="LC18" class="td-code"><span class="tab"><span class="comment line">#   The user account associated with this company contact, if one exists.</span></span></td></tr><tr class="row"><td id="L19" class="td-index">19</td><td id="LC19" class="td-code"><span class="tab"><span class="comment line"># </span></span></td></tr><tr class="row"><td id="L20" class="td-index">20</td><td id="LC20" class="td-code"><span class="tab"><span class="comment line">#   - Cost complexity: 1</span></span></td></tr><tr class="row"><td id="L21" class="td-index">21</td><td id="LC21" class="td-code"><span class="tab"><span class="meta">user</span>: <a class="support type" href="user.doc.html">User</a> </span></td></tr><tr class="row"><td id="L22" class="td-index">22</td><td id="LC22" class="td-code"></td></tr><tr class="row"><td id="L23" class="td-index">23</td><td id="LC23" class="td-code"><span class="tab"><span class="comment line">#   The teams to which this contact belongs.</span></span></td></tr><tr class="row"><td id="L24" class="td-index">24</td><td id="LC24" class="td-code"><span class="tab"><span class="meta">teams</span>: [<a class="support type" href="team.doc.html">Team</a>]! </span></td></tr><tr class="row"><td id="L25" class="td-index">25</td><td id="LC25" class="td-code"></td></tr><tr class="row"><td id="L26" class="td-index">26</td><td id="LC26" class="td-code"><span class="tab"><span class="comment line">#   Timestamp of this user's last visit to the platform.</span></span></td></tr><tr class="row"><td id="L27" class="td-index">27</td><td id="LC27" class="td-code"><span class="tab"><span class="meta">lastVisitDate</span>: <a class="support type" href="timestamp.doc.html">Timestamp</a> </span></td></tr><tr class="row"><td id="L28" class="td-index">28</td><td id="LC28" class="td-code"></td></tr><tr class="row"><td id="L29" class="td-index">29</td><td id="LC29" class="td-code">}</td></tr></tbody></table></code>
     </div>
 </section>
 <section>
