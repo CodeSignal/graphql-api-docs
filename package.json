@@ -22,7 +22,7 @@
     "graphqldoc": "^2.5.2"
   },
   "graphqldoc": {
-    "endpoint": "http://localhost:3000/graphql",
+    "endpoint": "https://app.codesignal.com/graphql",
     "output": "./docs/graphql/types",
     "title": "CodeSignal GraphQL API",
     "favicon": "<link rel=\"icon\" type=\"image/png\" href=\"https://app.codesignal.com/img/favicon-32x32.png\" sizes=\"32x32\"/>",
